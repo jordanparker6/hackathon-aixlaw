@@ -2,10 +2,8 @@ import uuid
 from typing import Dict, List, Optional, Tuple
 from pydantic import BaseModel
 
-from schema.models import Document
-from schema.models import DocumentChunk
-from schema.models import DocumentChunkMetadata
 from services.embedding import get_document_embeddings
+from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 class ChunkConfig(BaseModel):
@@ -37,7 +35,7 @@ def get_text_chunks(
 def create_document_chunks(
     doc: Document, 
     config: Optional[ChunkConfig] = None
-) -> Tuple[List[DocumentChunk], str]:
+) -> Tuple[List[Document], str]:
     """
     Convert a document into a list of document chunks without embeddings.
     """
@@ -51,16 +49,10 @@ def create_document_chunks(
     # Split the document text into chunks
     text_chunks = get_text_chunks(doc.text, config)
 
-    metadata = (
-        DocumentChunkMetadata(source_id=source_id, **doc.metadata.__dict__)
-        if doc.metadata is not None
-        else DocumentChunkMetadata(source_id=source_id)
-    )
-
     doc_chunks = []
     for i, text_chunk in enumerate(text_chunks):
         chunk_id = f"{source_id}_{i}"
-        doc_chunk = DocumentChunk(
+        doc_chunk = Docu(
             id=chunk_id,
             text=text_chunk,
             metadata=metadata,
