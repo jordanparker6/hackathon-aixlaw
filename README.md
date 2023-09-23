@@ -4,31 +4,72 @@
 2. Policy document review and compliance
 3. Reports compliance to requirements and compliance
 
-SEC. 303. <<NOTE: 15 USC 7242.>> IMPROPER INFLUENCE ON CONDUCT OF
-AUDITS.
+SEC. 302. <<NOTE: 15 USC 7241.>> CORPORATE RESPONSIBILITY FOR FINANCIAL
+REPORTS.
 
-    (a) Rules To Prohibit.--It shall be unlawful, in contravention of
+    (a) Regulations Required.--The Commission shall, by rule, require,
 
-such rules or regulations as the Commission shall prescribe as necessary
-and appropriate in the public interest or for the protection of
-investors, for any officer or director of an issuer, or any other person
-acting under the direction thereof, to take any action to fraudulently
-influence, coerce, manipulate, or mislead any independent public or
-certified accountant engaged in the performance of an audit of the
-financial statements of that issuer for the purpose of rendering such
-financial statements materially misleading.
-(b) Enforcement.--In any civil proceeding, the Commission shall have
-exclusive authority to enforce this section and any rule or regulation
-issued under this section.
-(c) No Preemption of Other Law.--The provisions of subsection (a)
-shall be in addition to, and shall not supersede or preempt, any other
-provision of law or any rule or regulation issued thereunder.
-(d) Deadline for Rulemaking.--The Commission shall--
-(1) propose the rules or regulations required by this
-section, not later than 90 days after the date of enactment of
-this Act; and
-(2) issue final rules or regulations required by this
-section, not later than 270 days after that date of enactment.
+for each company filing periodic reports under section 13(a) or 15(d) of
+the Securities Exchange Act of 1934 (15 U.S.C. 78m, 78o(d)), that the
+principal executive officer or officers and the principal financial
+officer or officers, or persons performing similar functions, certify in
+each annual or quarterly report filed or submitted under either such
+section of such Act that--
+(1) the signing officer has reviewed the report;
+(2) based on the officer's knowledge, the report does not
+contain any untrue statement of a material fact or omit to state
+a material fact necessary in order to make the statements made,
+in light of the circumstances under which such statements were
+made, not misleading;
+(3) based on such officer's knowledge, the financial
+statements, and other financial information included in the
+report, fairly present in all material respects the financial
+condition and results of operations of the issuer as of, and
+for, the periods presented in the report;
+(4) the signing officers--
+(A) are responsible for establishing and maintaining
+internal controls;
+(B) have designed such internal controls to ensure
+that material information relating to the issuer and its
+consolidated subsidiaries is made known to such officers
+by others within those entities, particularly during the
+period in which the periodic reports are being prepared;
+(C) have evaluated the effectiveness of the issuer's
+internal controls as of a date within 90 days prior to
+the report; and
+(D) have presented in the report their conclusions
+about the effectiveness of their internal controls based
+on their evaluation as of that date;
+(5) the signing officers have disclosed to the issuer's
+auditors and the audit committee of the board of directors (or
+persons fulfilling the equivalent function)--
+(A) all significant deficiencies in the design or
+operation of internal controls which could adversely
+affect the issuer's ability to record, process,
+summarize, and report financial data and have identified
+for the issuer's auditors any material weaknesses in
+internal controls; and
+(B) any fraud, whether or not material, that
+involves management or other employees who have a
+significant role in the issuer's internal controls; and
+(6) the signing officers have indicated in the report
+whether or not there were significant changes in internal
+controls or in other factors that could significantly affect
+internal controls subsequent to the date of their evaluation,
+including any corrective actions with regard to significant
+deficiencies and material weaknesses.
+
+    (b) Foreign Reincorporations Have No Effect.--Nothing in this
+
+section 302 shall be interpreted or applied in any way to allow any
+issuer to lessen the legal force of the statement required under this
+section 302, by an issuer having reincorporated or having engaged in any
+other transaction that resulted in the transfer of the corporate
+domicile or offices of the issuer from inside the United States to
+outside of the United States.
+(c) Deadline.--The rules required by subsection (a) shall be
+effective not later than 30 days after the date of enactment of this
+Act.
 
 SEC. 404. MANAGEMENT <<NOTE: 15 USC 7262.>> ASSESSMENT OF INTERNAL
 CONTROLS.
@@ -61,18 +102,15 @@ SEC. 401. DISCLOSURES <<NOTE: 15 USC 7261.>> IN PERIODIC REPORTS.
     (a) Disclosures Required.--Section 13 of the Securities Exchange Act
 
 of 1934 (15 U.S.C. 78m) is amended by adding at the end the following:
-``(i) Accuracy of Financial Reports.--Each financial report that
+`(i) Accuracy of Financial Reports.--Each financial report that
 contains financial statements, and that is required to be prepared in
 accordance with (or reconciled to) generally accepted accounting
 principles under this title and filed with the Commission shall reflect
 all material correcting adjustments that have been
-
-[[Page 116 STAT. 786]]
-
 identified by a registered public accounting firm in accordance with
 generally accepted accounting principles and the rules and regulations
 of the Commission.
-``(j) Off-Balance Sheet Transactions.--
+`(j) Off-Balance Sheet Transactions.--
 Not <<NOTE: Deadline. Regulations.>> later than 180 days after the date
 of enactment of the Sarbanes-Oxley Act of 2002, the Commission shall
 issue final rules providing that each annual and quarterly financial
