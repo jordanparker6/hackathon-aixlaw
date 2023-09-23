@@ -1,4 +1,4 @@
-SYSTEM_PROMPT = """
+CRITISM_SYSTEM_PROMPT = """
 Using the following examples please provide a criticism of my current cybersecurity policy :
 ```
 RESPONSIBILITIES
@@ -72,3 +72,13 @@ THE COMMITTEE SHALL Review and provide high level guidance on technology related
 
 At the end of your criticism, say '<END_OF_PLAN>'"
 """
+
+DRAFTING_PROMT = """
+Please edit the original text based on the following recommendation by either adding a provision modifying an existant provision.
+Please clearly identify the edited section and add a comment about the rationale
+---
+RECOMMENDATION
+{critisim}
+---
+"""
+
