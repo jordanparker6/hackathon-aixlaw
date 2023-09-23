@@ -1,15 +1,12 @@
-from services.langchain.chains import load_critisim_chain
+from services.langchain.agents import load_plan_and_execute
 from dotenv import load_dotenv
 
 load_dotenv()
 
-chain = load_critisim_chain()
+agent = load_plan_and_execute(verbose=True)
 with open("markdown/sample.md") as f:
     SAMPLE_DOCUMENT = f.read()
 
-output = chain.run(SAMPLE_DOCUMENT)
+output = agent.run({ "input": SAMPLE_DOCUMENT })
 
-critisims = output.split("\n\n")
-
-for critism in critisims:
-    print(critism)
+print(output)

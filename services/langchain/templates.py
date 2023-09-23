@@ -69,4 +69,6 @@ THE COMMITTEE SHALL Review and provide high level guidance on technology related
 7. With the assistance of Company management, provide an IT Risk Assessment Report to the Board on an annual basis, including systems and processes relating to cybersecurity.
  8. Review the Company’s development and training plan for critical IT staff as well as succession planning and employee training of cybersecurity risks. The Committee shall have the authority to retain outside technical consultants or other appropriate advisors. The Company shall provide for appropriate funding, as determined by the Committee, for payment of compensation to such consultants. The Committee shall review and reassess the adequacy of this Charter periodically and recommend any proposed changes to the Board for approval.
 ```
+
+At the end of your criticism, say '<END_OF_PLAN>'"
 """
