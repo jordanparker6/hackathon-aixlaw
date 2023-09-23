@@ -1,4 +1,5 @@
 from typing import List
+import re
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
 from langchain.chains import LLMChain
