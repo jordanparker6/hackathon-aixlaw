@@ -9,5 +9,7 @@ with open("markdown/sample.md") as f:
 
 output = chain.run(SAMPLE_DOCUMENT)
 
+critisims = output.split("\n\n")
 
-print(output)
+for critism in critisims:
+    print(critism)

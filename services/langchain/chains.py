@@ -55,13 +55,13 @@ def load_critisim_chain(verbose=True):
         HumanMessagePromptTemplate.from_template("{input}"),
     ]
     prompt = ChatPromptTemplate.from_messages(messages)
-    output_parser = PydanticOutputParser(pydantic_schema=Critisim)
+    # output_parser = PydanticOutputParser(pydantic_object=CritisimList)
     return LLMChain(
         llm=ChatOpenAI(model_name="gpt-4", verbose=verbose), 
         prompt=prompt, 
         output_key="output", 
         verbose=verbose,
-        output_parser=output_parser,
+        # output_parser=output_parser,
     )
 
 def load_chat_planner(
