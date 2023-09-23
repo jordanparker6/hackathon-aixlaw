@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Jordan Parker <jordanhparker6@gmail.com>"]
 readme = "README.md"
-# packages = [{ include = "hackathon_aixlaw" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -12,8 +11,8 @@ structlog = "^23.1.0"
 python-dotenv = "^1.0.0"
 openai = "^0.28.0"
 langchain = "^0.0.285"
-httpx = "^0.24.1"
 langchain-experimental = "^0.0.17"
+httpx = "^0.24.1"
 pydantic = "^1.10.5"
 
 [tool.poetry.group.dev.dependencies]

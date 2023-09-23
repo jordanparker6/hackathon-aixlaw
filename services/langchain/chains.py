@@ -1,19 +1,16 @@
 from typing import List
 import re
-from langchain.embeddings import OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
 from langchain.chains import LLMChain
-from langchain.chat_models import ChatOpenAI
-from langchain.prompts import SystemMessagePromptTemplate, HumanMessagePromptTemplate
-from langchain.pydantic_v1 import BaseModel, Field, validator
-from services.langchain.templates import SYSTEM_PROMPT
+from langchain.prompts import HumanMessagePromptTemplate
+from langchain.pydantic_v1 import BaseModel, Field
+from services.langchain.templates import CRITISM_SYSTEM_PROMPT, DRAFTING_PROMT
 #from langchain.output_parsers.openai_functions import PydanticOutputFunctionsParser
 from langchain.output_parsers import PydanticOutputParser
 from langchain_experimental.plan_and_execute.schema import Plan, PlanOutputParser
 
 from langchain.chains import LLMChain
 from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
-from langchain.schema.language_model import BaseLanguageModel
 from langchain.schema.messages import SystemMessage
 
 from langchain_experimental.plan_and_execute.planners.base import LLMPlanner
@@ -22,8 +19,6 @@ from langchain_experimental.plan_and_execute.schema import (
     PlanOutputParser,
     Step,
 )
-
-
 
 
 class Critisim(BaseModel):
@@ -48,42 +43,29 @@ class PlanningOutputParser(PlanOutputParser):
 
 
 
-def load_critisim_chain(verbose=True):
-    """Loads a critizim chat chain."""
-    messages = [
-        SystemMessagePromptTemplate.from_template(SYSTEM_PROMPT),
-        HumanMessagePromptTemplate.from_template("{input}"),
-    ]
-    prompt = ChatPromptTemplate.from_messages(messages)
-    # output_parser = PydanticOutputParser(pydantic_object=CritisimList)
-    return LLMChain(
-        llm=ChatOpenAI(model_name="gpt-4", verbose=verbose), 
-        prompt=prompt, 
-        output_key="output", 
-        verbose=verbose,
-        # output_parser=output_parser,
-    )
-
-def load_chat_planner(
-    llm: BaseLanguageModel, system_prompt: str = SYSTEM_PROMPT
-) -> LLMPlanner:
+def load_critisim_planner(llm, verbose=False) -> LLMPlanner:
     prompt_template = ChatPromptTemplate.from_messages(
         [
-            SystemMessage(content=system_prompt),
+            SystemMessage(content=CRITISM_SYSTEM_PROMPT),
             HumanMessagePromptTemplate.from_template("{input}"),
         ]
     )
-    llm_chain = LLMChain(llm=llm, prompt=prompt_template)
+    llm_chain = LLMChain(
+        llm=llm,
+        prompt=prompt_template
+    )
     return LLMPlanner(
         llm_chain=llm_chain,
         output_parser=PlanningOutputParser(),
         stop=["<END_OF_PLAN>"],
     )
 
-def load_action_chain():
-    """Load an action chain."""
-
-
 
 
     
+def load_redrafting_chain(llm):
+    chain = LLMChain(
+        llm=llm,
+        prompt=DRAFTING_PROMT
+    )
+    return chain
