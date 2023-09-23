@@ -7,10 +7,6 @@ from services.langchain.tools import load_tools
 def load_plan_and_execute(verbose=False):
     llm = ChatOpenAI(model_name="gpt-4", verbose=verbose)
 
-    executor = load_agent_executor(llm, tools, verbose=verbose)
-
-    agent = PlanAndExecute(planner=planner, executer=executor, verbose=True)
-
     tools = load_tools()
     planner = load_critisim_planner(llm=llm)
     executor = load_agent_executor(llm, tools, verbose=True)
