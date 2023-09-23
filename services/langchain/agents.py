@@ -11,5 +11,5 @@ def load_plan_and_execute(verbose=False):
     planner = load_critisim_planner(llm=llm)
     executor = load_agent_executor(llm, tools, verbose=True)
 
-    agent = PlanAndExecute(planner=planner, executer=executor, verbose=True)
+    agent = PlanAndExecute(planner=planner, executor=executor, verbose=True)
     return agent
