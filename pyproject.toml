@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "hackathon-aixlaw"
+version = "0.1.0"
+description = ""
+authors = ["Jordan Parker <jordanhparker6@gmail.com>"]
+readme = "README.md"
+packages = [{include = "hackathon_aixlaw"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.0.300"
+structlog = "^23.1.0"
+fastapi = "^0.103.1"
+tenacity = "^8.2.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
