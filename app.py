@@ -30,7 +30,7 @@ def pdf_to_markdown(pdf_file):
 st.title("404")
 st.subheader(":red[Not] Found")
 st.markdown("Reviewing your organisations ICT Security Policy for compliance review and recommendations")
-st.markdown("SEC Regulation S-K Item 10 - Information Security Controls")
+st.markdown("SEC Regulation S-K Item 106 - Information Security Controls")
 
 openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
