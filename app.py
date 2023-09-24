@@ -64,15 +64,15 @@ if pdf_file is not None:
 
     revisions = []
 
-    for plan in plan.steps[:2]:
+    for plan in plan.steps:
         with st.status(label=f"**Critisim**: {plan.value}", state="running") as status:
             output = drafter({ "critisim": plan.value, "context": markdown_text })
             revision = output["text"]
             revisions.append(revision)
-            status.write(f"Revised Text \n\n {revision}")
+            status.write(f"## Revised Text \n\n {revision}")
         
     with st.status(label="**Reconstructing Document**", state="running"):
         revision = "\n\n".join(revisions)
         output = reconstruct({ "revision": revisions, "context": markdown_text })
-        print(output)
-        st.write(output)
+        text = output["text"]
+        st.markdown("## Final Document \n\n {text}")
