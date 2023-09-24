@@ -84,7 +84,8 @@ if pdf_file is not None:
     plan = planner.plan({ "input": markdown_text })
 
     for plan in plan.steps:
-        st.status(label=f"**Critisim**: {plan.value}", state="running")
-        output = drafter({ "critisim": plan.value, "context": markdown_text })
-        st.status(label=f"**Critisim**: {plan.value}", state="running")
-        st.write(output["text"])
+        with st.status(label=f"**Critisim**: {plan.value}", state="running") as status:
+            output = drafter({ "critisim": plan.value, "context": markdown_text })
+            st.status(label=f"**Critisim**: {plan.value}", state="complete")
+            st.write(output["text"])
+            status.write(output["text"])
