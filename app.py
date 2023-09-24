@@ -1,7 +1,7 @@
 import streamlit as st
 import fitz  # PyMuPDF
 import tempfile
-import os
+import structlog
 from services.langchain.agents import load_plan_and_execute
 from dotenv import load_dotenv    
 from langchain.callbacks import StreamlitCallbackHandler
@@ -10,6 +10,8 @@ from langchain.memory import ConversationBufferMemory
 from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 
 load_dotenv()
+
+log = structlog.get_logger("app.main")
 
 def pdf_to_markdown(pdf_file):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
@@ -45,15 +47,20 @@ for idx, msg in enumerate(msgs.messages):
     with st.chat_message(avatars[msg.type]):
         # Render intermediate steps if any were saved
         for step in st.session_state.steps.get(str(idx), []):
+            log.info("step", step=step)
             if step[0].tool == "_Exception":
                 continue
-            with st.status(f"**{step[0].tool}**: {step[0].tool_input}", state="complete"):
+            query = step[0].tool_input["query"]
+            with st.status(label=f"**Critisim**: {query}", state="running"):
+                 st.write("running")
+            with st.status(label=f"**Critisim**: {query}", expanded=True, state="complete"):
                 st.write(step)
                 # st.write(step[0].log)
                 # if step[1].get("completion"):
                 #     st.write(step[1]["completion"])
                 # else:
                 #     st.write(step[1])
+        print(msg.content)
         st.write(msg.content)
 
 if pdf_file is not None:
@@ -65,7 +72,7 @@ if pdf_file is not None:
     #markdown_text = pdf_to_markdown(pdf_file)
     with open("markdown/sample.md") as f:
         markdown_text = f.read()
-    agent = load_plan_and_execute(context=markdown_text)
+    agent = load_plan_and_execute(context=markdown_text, model_name="gpt-3.5-turbo-16k", verbose=False)
 
 
     with st.chat_message("assistant"):
