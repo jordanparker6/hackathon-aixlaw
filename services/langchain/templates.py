@@ -80,5 +80,9 @@ Please clearly identify the edited section and add a comment about the rationale
 RECOMMENDATION
 {critisim}
 ---
+ORIGINAL TEXT
+{context}
+---
+Please output the full edited text with associated comments
 """
 
