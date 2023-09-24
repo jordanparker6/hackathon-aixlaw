@@ -73,12 +73,16 @@ THE COMMITTEE SHALL Review and provide high level guidance on technology related
 At the end of your criticism, say '<END_OF_PLAN>'"
 """
 
-DRAFTING_PROMT = """
+DRAFTING_PROMPT = """
 Please edit the original text based on the following recommendation by either adding a provision modifying an existant provision.
 Please clearly identify the edited section and add a comment about the rationale
 ---
 RECOMMENDATION
 {critisim}
 ---
+ORIGINAL TEXT
+{context}
+---
+Please output the full edited text with associated comments
 """
 
