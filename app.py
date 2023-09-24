@@ -69,7 +69,7 @@ if pdf_file is not None:
             output = drafter({ "criticism": plan.value, "context": markdown_text })
             revision = output["text"]
             revisions.append(revision)
-            status.write(f"## Revised Text \n\n {revision}")
+            status.write(f"#### Revised Text \n\n {revision}")
         
     with st.status(label="**Reconstructing Document**", state="running"):
         revision = "\n\n".join(revisions)
