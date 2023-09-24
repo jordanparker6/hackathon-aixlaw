@@ -78,7 +78,7 @@ Please edit the relevant parts of the original text based on the following recom
 Please clearly identify the edited section and add a comment about the rationale
 ---
 RECOMMENDATION
-{critisim}
+{criticism}
 ---
 ORIGINAL TEXT
 {context}
