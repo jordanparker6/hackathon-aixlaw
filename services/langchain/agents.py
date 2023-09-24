@@ -1,5 +1,4 @@
 from langchain.chat_models import ChatOpenAI
-from services.langchain.pande import PlanAndExecute
 from langchain_experimental.plan_and_execute import PlanAndExecute, load_agent_executor
 from services.langchain.chains import load_critisim_planner
 from services.langchain.tools import load_tools
