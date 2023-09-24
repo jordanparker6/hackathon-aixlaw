@@ -64,7 +64,7 @@ if pdf_file is not None:
 
     revisions = []
 
-    for plan in plan.steps[:2]:
+    for plan in plan.steps:
         with st.status(label=f"**Critisim**: {plan.value}", state="running") as status:
             output = drafter({ "critisim": plan.value, "context": markdown_text })
             revision = output["text"]
