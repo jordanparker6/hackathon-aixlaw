@@ -29,8 +29,8 @@ def pdf_to_markdown(pdf_file):
     return markdown_text
 
 #st.set_page_config(page_title="404 Not Found", page_icon="🦜")
-st.title("## 404 ")
-st.subheader("Not[:red] Found")
+st.title("404")
+st.subheader(":red[Not] Found")
 
 openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
@@ -81,11 +81,15 @@ if pdf_file is not None:
     llm = ChatOpenAI(model_name="gpt-4")
     planner = load_critisim_planner(llm=llm)
     drafter = load_redrafting_chain(llm=llm)
-    plan = planner.plan({ "input": markdown_text })
+    with st.status(label="**Reviewing Document and Formulating Critisim**", state="running"):
+        plan = planner.plan({ "input": markdown_text })
+    print("Critisim Complete")
+
+    revisions = []
 
     for plan in plan.steps:
         with st.status(label=f"**Critisim**: {plan.value}", state="running") as status:
             output = drafter({ "critisim": plan.value, "context": markdown_text })
-            st.status(label=f"**Critisim**: {plan.value}", state="complete")
-            st.write(output["text"])
-            status.write(output["text"])
+            revision = output["text"]
+            revisions.append(revision)
+            status.write(f"Revised Text \n\n {revision}")
