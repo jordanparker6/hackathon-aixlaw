@@ -16,6 +16,7 @@ httpx = "^0.24.1"
 pydantic = "^1.10.5"
 streamlit = "^1.27.0"
 pymupdf = "^1.23.3"
+rich = "^13.5.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"

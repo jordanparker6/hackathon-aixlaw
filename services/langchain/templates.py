@@ -74,7 +74,7 @@ At the end of your criticism, say '<END_OF_PLAN>'"
 """
 
 DRAFTING_PROMPT = """
-Please edit the original text based on the following recommendation by either adding a provision modifying an existant provision.
+Please edit the relevant parts of the original text based on the following recommendation by either adding a provision modifying an existant provision.
 Please clearly identify the edited section and add a comment about the rationale
 ---
 RECOMMENDATION
@@ -83,6 +83,6 @@ RECOMMENDATION
 ORIGINAL TEXT
 {context}
 ---
-Please output the full edited text with associated comments
+Please output the partial edited text with associated comments.
 """
 
