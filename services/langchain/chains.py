@@ -5,9 +5,7 @@ from langchain.chains import LLMChain
 from langchain.prompts import HumanMessagePromptTemplate
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain.prompts import PromptTemplate
-from services.langchain.templates import CRITISM_SYSTEM_PROMPT, DRAFTING_PROMPT
-#from langchain.output_parsers.openai_functions import PydanticOutputFunctionsParser
-from langchain.output_parsers import PydanticOutputParser
+from services.langchain.templates import CRITISM_SYSTEM_PROMPT, DRAFTING_PROMPT, RECONSTRUCTION_PROMPT
 from langchain_experimental.plan_and_execute.schema import Plan, PlanOutputParser
 
 from langchain.chains import LLMChain
@@ -64,6 +62,14 @@ def load_critisim_planner(llm, verbose=False) -> LLMPlanner:
     
 def load_redrafting_chain(llm):
     prompt = PromptTemplate.from_template(DRAFTING_PROMPT)
+    chain = LLMChain(
+        llm=llm,
+        prompt=prompt
+    )
+    return chain
+
+def load_reconstruction_chain(llm):
+    prompt = PromptTemplate.from_template(RECONSTRUCTION_PROMPT)
     chain = LLMChain(
         llm=llm,
         prompt=prompt

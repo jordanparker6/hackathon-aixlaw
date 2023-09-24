@@ -86,3 +86,14 @@ ORIGINAL TEXT
 Please output the partial edited text with associated comments.
 """
 
+RECONSTRUCTION_PROMPT = """
+Please reconstruct the document based on the following revision by either adding a provision modifying an existant provision.
+---
+ORIGINBAL TEXT
+{context}
+---
+REVISIONS
+{revision}
+---
+Please output the only the revisied original text with the revision added or modified to the original text.
+"""
