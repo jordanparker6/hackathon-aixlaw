@@ -8,6 +8,9 @@ from langchain.callbacks import StreamlitCallbackHandler
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
+from services.langchain.chains import load_critisim_planner, load_redrafting_chain
+from langchain.chat_models import ChatOpenAI
+from rich import print
 
 load_dotenv()
 
@@ -72,7 +75,15 @@ if pdf_file is not None:
     #markdown_text = pdf_to_markdown(pdf_file)
     with open("markdown/sample.md") as f:
         markdown_text = f.read()
-    agent = load_plan_and_execute(context=markdown_text, model_name="gpt-3.5-turbo-16k", verbose=False)
+
+
+    # agent = load_plan_and_execute(context=markdown_text, model_name="gpt-3.5-turbo-16k", verbose=False)
+
+    llm = ChatOpenAI(model_name="gpt-4")
+    planner = load_critisim_planner(llm=llm)
+    drafter = load_redrafting_chain(llm=llm)
+
+    plan = planner.plan({ "input": markdown_text })
 
 
     with st.chat_message("assistant"):
