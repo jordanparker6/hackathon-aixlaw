@@ -38,7 +38,6 @@ memory = ConversationBufferMemory(
 
 if len(msgs.messages) == 0 or st.sidebar.button("Reset chat history"):
     msgs.clear()
-    msgs.add_ai_message("How can I help you?")
     st.session_state.steps = {}
 
 avatars = {"human": "user", "ai": "assistant"}
@@ -63,7 +62,9 @@ if pdf_file is not None:
     if not openai_api_key:
         st.info("Please add your OpenAI API key to continue.")
         st.stop()
-    markdown_text = pdf_to_markdown(pdf_file)
+    #markdown_text = pdf_to_markdown(pdf_file)
+    with open("markdown/sample.md") as f:
+        markdown_text = f.read()
     agent = load_plan_and_execute(context=markdown_text)
 
 

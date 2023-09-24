@@ -61,8 +61,6 @@ def load_critisim_planner(llm, verbose=False) -> LLMPlanner:
         stop=["<END_OF_PLAN>"],
     )
 
-
-
     
 def load_redrafting_chain(llm):
     prompt = PromptTemplate.from_template(DRAFTING_PROMPT)
